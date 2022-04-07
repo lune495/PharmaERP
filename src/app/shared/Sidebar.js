@@ -40,6 +40,8 @@ class Sidebar extends Component {
       {path:'/icons', state: 'iconsMenuOpen'},
       {path:'/charts', state: 'chartsMenuOpen'},
       {path:'/product', state: 'productMenuOpen'},
+      {path:'/boutique', state: 'boutiqueMenuOpen'},
+      {path:'/vente', state: 'venteMenuOpen'},
       {path:'/categorie', state: 'categorieMenuOpen'},
       {path:'/user', state: 'userPagesMenuOpen'},
       {path:'/error-pages', state: 'errorPagesMenuOpen'},
@@ -123,6 +125,26 @@ class Sidebar extends Component {
               <span className="menu-title"><Trans>Dashboard</Trans></span>
             </Link>
           </li>
+
+          <li className={ this.isPathActive('/vente') ? 'nav-item menu-items active' : 'nav-item menu-items' }>
+            <div className={ this.state.venteMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('venteMenuOpen') } data-toggle="collapse">
+              <span className="menu-icon">
+                <i className="mdi mdi-contacts"></i>
+              </span>
+              <span className="menu-title"><Trans>Ventes</Trans></span>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={ this.state.venteMenuOpen }>
+              <div>
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item"> <Link className={ this.isPathActive('/vente/vendre') ? 'nav-link active' : 'nav-link' } to="/vente/vendre"><Trans>Faire vente</Trans></Link></li>
+                  {/* <li className="nav-item"> <Link className={ this.isPathActive('/vente/mesvente') ? 'nav-link active' : 'nav-link' } to="/vente/mesvente"><Trans>Mes vente</Trans></Link></li> */}
+                </ul>
+              </div>
+            </Collapse>
+          </li>
+
+
           {/* <li className={ this.isPathActive('/basic-ui') ? 'nav-item menu-items active' : 'nav-item menu-items' }>
             <div className={ this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('basicUiMenuOpen') } data-toggle="collapse">
               <span className="menu-icon">
@@ -205,13 +227,36 @@ class Sidebar extends Component {
               </div>
             </Collapse>
           </li> */}
+          
+
+
+        <li className={ this.isPathActive('/boutique') ? 'nav-item menu-items active' : 'nav-item menu-items' }>
+            <div className={ this.state.boutiqueMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('boutiqueMenuOpen') } data-toggle="collapse">
+              <span className="menu-icon">
+                <i className="mdi mdi-contacts"></i>
+              </span>
+              <span className="menu-title"><Trans>Boutique</Trans></span>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={ this.state.boutiqueMenuOpen }>
+              <div>
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item"> <Link className={ this.isPathActive('/boutique/list') ? 'nav-link active' : 'nav-link' } to="/boutique/list"><Trans>Liste Produit</Trans></Link></li>
+                  <li className="nav-item"> <Link className={ this.isPathActive('/boutique/approv') ? 'nav-link active' : 'nav-link' } to="/boutique/approv"><Trans>Approvisionner</Trans></Link></li>
+                </ul>
+              </div>
+            </Collapse>
+          </li>
+
+
+
 
           <li className={ this.isPathActive('/product') ? 'nav-item menu-items active' : 'nav-item menu-items' }>
             <div className={ this.state.productMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('productMenuOpen') } data-toggle="collapse">
               <span className="menu-icon">
                 <i className="mdi mdi-contacts"></i>
               </span>
-              <span className="menu-title"><Trans>Produits</Trans></span>
+              <span className="menu-title"><Trans>Dépots</Trans></span>
               <i className="menu-arrow"></i>
             </div>
             <Collapse in={ this.state.productMenuOpen }>
@@ -219,6 +264,7 @@ class Sidebar extends Component {
                 <ul className="nav flex-column sub-menu">
                   <li className="nav-item"> <Link className={ this.isPathActive('/product/form') ? 'nav-link active' : 'nav-link' } to="/product/form"><Trans>Nouveau Produit</Trans></Link></li>
                   <li className="nav-item"> <Link className={ this.isPathActive('/product/list') ? 'nav-link active' : 'nav-link' } to="/product/list"><Trans>Liste Produit</Trans></Link></li>
+                  <li className="nav-item"> <Link className={ this.isPathActive('/product/approv') ? 'nav-link active' : 'nav-link' } to="/product/approv"><Trans>Approvisionner</Trans></Link></li>
                 </ul>
               </div>
             </Collapse>

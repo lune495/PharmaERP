@@ -5,14 +5,19 @@ import Spinner from '../app/shared/Spinner';
 
 const Dashboard = lazy(() => import('./dashboard/Dashboard'));
 
-const ProductForm = lazy(() => import('./pages/ProductForm'));
-const ProductList = lazy(() => import('./pages/ProductList'));
+const ProductForm = lazy(() => import('./pages/depot/ProductForm'));
+const ProductList = lazy(() => import('./pages/depot/ProductList'));
+const ProductBoutiqueList = lazy(() => import('./pages/boutique/ProductBoutiqueList'));
 
-const CategorieForm = lazy(() => import('./pages/CategorieForm'));
-const CategorieList = lazy(() => import('./pages/CategorieList'));
+const ApprovDepotForm = lazy(() => import('./pages/depot/ApprovDepotForm'));
+const ApprovBoutiqueForm = lazy(() => import('./pages/boutique/ApprovBoutiqueForm'));
+const ProductVente = lazy(() => import('./pages/vente/ProductVente'));
 
-const UserForm = lazy(() => import('./pages/UserForm'));
-const UserList = lazy(() => import('./pages/UserList'));
+const CategorieForm = lazy(() => import('./pages/categorie/CategorieForm'));
+const CategorieList = lazy(() => import('./pages/categorie/CategorieList'));
+
+const UserForm = lazy(() => import('./pages/user/UserForm'));
+const UserList = lazy(() => import('./pages/user/UserList'));
 
 const Buttons = lazy(() => import('./basic-ui/Buttons'));
 const Dropdowns = lazy(() => import('./basic-ui/Dropdowns'));
@@ -33,6 +38,7 @@ const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
 
 
+
 class AppRoutes extends Component {
   render () {
     return (
@@ -42,6 +48,12 @@ class AppRoutes extends Component {
 
           <Route path="/product/form" component={ ProductForm } />
           <Route path="/product/list" component={ ProductList } />
+          <Route path="/boutique/list" component={ ProductBoutiqueList } />
+
+          <Route path="/product/approv" component={ ApprovDepotForm } />
+          <Route path="/boutique/approv" component={ ApprovBoutiqueForm } />
+
+          <Route path="/vente/vendre" component={ ProductVente } />
 
           <Route path="/categorie/form" component={ CategorieForm } />
           <Route path="/categorie/list" component={ CategorieList } />
